@@ -1,0 +1,134 @@
+:root {
+  --background-color: #e0e7ff;
+  --text-color: #1e3a8a;
+  --image-background: #1e293b;
+  --image-text-color: #f1f5f9;
+  --theme-changer-background: black;
+  --theme-changer-circle: #e0e7ff;
+  --hover-width: 40%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Dosis", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+  height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+input,
+select {
+  outline: none;
+  border: 0;
+}
+
+.container {
+  width: 50%;
+  height: 60%;
+  display: flex;
+  gap: 10px;
+}
+
+.image {
+  background-color: var(--image-background);
+  width: calc(100% / 5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: all 0.4s;
+}
+.image:hover {
+  width: var(--hover-width);
+}
+.image:hover img {
+  filter: brightness(100%);
+}
+.image h1 {
+  color: var(--image-text-color);
+  rotate: -90deg;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  bottom: 50%;
+  transition: all 0.4s, top 1s;
+}
+.image img {
+  height: 100%;
+  opacity: 80%;
+  filter: brightness(30%);
+  position: absolute;
+  transition: all 0.4s;
+}
+
+.image:hover h1 {
+  rotate: 0deg;
+  font-size: 1.3rem;
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  background-color: var(--image-background);
+  font-weight: 600;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-block: 10px;
+}
+
+.theme_Changer {
+  background-color: var(--image-background);
+  padding-inline: 3.5px;
+  border-radius: 100px;
+  width: 60px;
+  height: 32px;
+  margin-bottom: 30px;
+}
+
+.theme_Changer .circle {
+  background-color: var(--theme-changer-circle);
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  color: var(--image-background);
+  font-size: 1rem;
+  transition: all 0.4s;
+}
+.theme_Changer .circle::after {
+  content: "\f042";
+  font-family: "font awesome 5 free";
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+  .container {
+    width: 100%;
+    gap: 1px;
+    padding-inline: 10px;
+  }
+}
